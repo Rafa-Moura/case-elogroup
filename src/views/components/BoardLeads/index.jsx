@@ -4,6 +4,7 @@ import ListLead from "../ListLead";
 import { MdAdd } from "react-icons/md";
 
 import "./styles.css";
+import { Link } from "react-router-dom";
 
 function BoardLeads() {
   return (
@@ -17,12 +18,14 @@ function BoardLeads() {
         </div>
       </header>
       <div className="board--action">
-        <button className="btn">
-          Novo Lead
-          <span>
-            <MdAdd size={24} color="#fff" />
-          </span>
-        </button>
+        <Link to="/cadastrarlead">
+          <button className="btn">
+            Novo Lead
+            <span>
+              <MdAdd size={24} color="#fff" />
+            </span>
+          </button>
+        </Link>
       </div>
       <div className="body--board">
         <ListLead title="Cliente em Potencial" />
