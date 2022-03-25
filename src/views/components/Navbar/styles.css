@@ -1,0 +1,9 @@
+header {
+  height: 70px !important;
+  background-color: rgb(54, 71, 148);
+}
+
+nav {
+    height: 100%;
+    color: #fff !important;
+}
