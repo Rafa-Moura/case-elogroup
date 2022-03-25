@@ -1,0 +1,46 @@
+#board--container {
+  width: 100%;
+  background-color: rgba(235, 235, 235, 0.335);
+  border: 1px solid #f8f8f8;
+  border-radius: 10px;
+}
+
+.header--board {
+  display: flex;
+  align-items: center;
+  padding: 10px 30px;
+  border-bottom: 2px solid rgb(54, 71, 148);
+  margin-bottom: 10px;
+}
+
+.logo--board {
+  background-color: rgb(54, 71, 148);
+  padding: 10px;
+  color: #fff;
+}
+
+.header--board .title {
+  margin: 0 auto;
+}
+
+.board--action {
+  padding: 5px 30px;
+  margin: 20px 0  ;
+}
+
+.board--action button {
+  background-color: rgb(54, 71, 148);
+  color: #fff;
+}
+
+.board--action button > span{
+  margin-left: 10px;
+}
+
+
+.body--board {
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

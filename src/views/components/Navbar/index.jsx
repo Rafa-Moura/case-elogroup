@@ -4,7 +4,7 @@ import "./styles.css";
 
 function Navbar() {
   return (
-    <header>
+    <header className="navbarGlobal">
       <nav class="navbar navbar-light">
         <div class="container-fluid">
           <a class="navbar-brand text-white" href="/">
