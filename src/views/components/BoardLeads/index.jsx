@@ -28,9 +28,7 @@ function BoardLeads() {
         </Link>
       </div>
       <div className="body--board">
-        <ListLead title="Cliente em Potencial" />
-        <ListLead title="Dados Confirmados" />
-        <ListLead title="Reunião Agendada" />
+        <ListLead />
       </div>
     </div>
   );

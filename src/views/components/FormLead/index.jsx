@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { saveLead } from "../../../controllers/leadController";
+import apiConnector from "../../../api/apiConnector";
 
 import "./styles.css";
 
 function FormLead() {
+  const [name, setName] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [email, setEmail] = useState("");
+
+  const navigate = useNavigate();
+
+  const model = {
+    id: Math.floor(Date.now() * Math.random()).toString(36),
+    name: name,
+    telefone: telefone,
+    email: email,
+  };
+
+  const lead = JSON.parse(apiConnector.getItem("lead")) || [];
+  lead.push(model);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    saveLead(lead);
+    navigate("/leads");
+  };
+
   return (
     <div className="formLead--container">
       <header className="header--formLead">
@@ -15,55 +40,69 @@ function FormLead() {
       </header>
       <div className="formLead--body">
         <div className="row">
-          <form className="d-flex align-items-center">
-            <div className="formLead--inputs col-sm-12 col-md-6">
-              <div class="mb-3">
-                <label for="name" class="form-label">
+          <form className="form--Lead" onSubmit={handleSubmit}>
+            <div className="formLead--inputs">
+              <div className="mb-3">
+                <label htmlFor="name" className="form-label">
                   Nome
                 </label>
-                <input type="text" class="form-control" id="name" />
+                <input
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  type="text"
+                  className="form-control"
+                />
               </div>
-              <div class="mb-3">
-                <label for="telefone" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="telefone" className="form-label">
                   Telefone
                 </label>
-                <input type="text" class="form-control" id="telefone" />
+                <input
+                  id="telefone"
+                  type="text"
+                  value={telefone}
+                  onChange={(e) => setTelefone(e.target.value)}
+                  className="form-control"
+                />
               </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="email" className="form-label">
                   Email
                 </label>
                 <input
-                  type="email"
-                  class="form-control"
                   id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="form-control"
                 />
               </div>
             </div>
-            <div className="checkbox--area col-sm-12 col-md-6 ms-4">
-              <table class="table table-responsive">
+            <div className="checkbox--area">
+              <table className="table table-responsive">
                 <thead>
                   <tr>
                     <th scope="col">
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           id="flexCheckDefault"
                         />
                       </div>
                     </th>
-                    <th scope="col"></th>
+                    <th scope="col">Selecionar todos</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
-                          id="flexCheckDefault"
+                          id="rap"
                         />
                       </div>
                     </td>
@@ -71,11 +110,11 @@ function FormLead() {
                   </tr>
                   <tr>
                     <td>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
-                          id="flexCheckDefault"
+                          id="produtoDigital"
                         />
                       </div>
                     </td>
@@ -83,11 +122,11 @@ function FormLead() {
                   </tr>
                   <tr>
                     <td>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
-                          id="flexCheckDefault"
+                          id="analytics"
                         />
                       </div>
                     </td>
@@ -95,11 +134,11 @@ function FormLead() {
                   </tr>
                   <tr>
                     <td>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
-                          id="flexCheckDefault"
+                          id="bpm"
                         />
                       </div>
                     </td>
@@ -107,7 +146,7 @@ function FormLead() {
                   </tr>
                 </tbody>
               </table>
-              <button type="submit" class="btn btn-primary w-100">
+              <button type="submit" className="btn btn-primary w-100">
                 Cadastrar
               </button>
             </div>

@@ -5,9 +5,9 @@ import "./styles.css";
 function Navbar() {
   return (
     <header className="navbarGlobal">
-      <nav class="navbar navbar-light">
-        <div class="container-fluid">
-          <a class="navbar-brand text-white" href="/">
+      <nav className="navbar navbar-light">
+        <div className="container-fluid">
+          <a className="navbar-brand text-white" href="/">
             Case ELOGROUP
           </a>
         </div>

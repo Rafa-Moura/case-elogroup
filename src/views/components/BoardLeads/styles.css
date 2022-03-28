@@ -25,7 +25,7 @@
 
 .board--action {
   padding: 5px 30px;
-  margin: 20px 0  ;
+  margin: 20px 0;
 }
 
 .board--action button {
@@ -33,10 +33,9 @@
   color: #fff;
 }
 
-.board--action button > span{
+.board--action button > span {
   margin-left: 10px;
 }
-
 
 .body--board {
   padding: 10px 30px;

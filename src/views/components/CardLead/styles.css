@@ -1,7 +1,9 @@
 .cardLead--container {
   padding: 20px;
   margin: 10px 0;
+  cursor: grab;
   background-color: #fff;
+  width: 100%;
 }
 
 .cardLead--container h5 {
