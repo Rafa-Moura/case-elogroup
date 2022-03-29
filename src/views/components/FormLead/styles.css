@@ -1,0 +1,51 @@
+.formLead--container {
+  max-width: 800px;
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: 40px 30px;
+}
+.header--formLead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.logo--formLead {
+  background-color: rgb(54, 71, 148);
+  padding: 10px;
+  color: #fff;
+}
+
+.formLead--inputs {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  margin: auto 0;
+}
+
+.form--Lead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkbox--area {
+  width: 100%;
+  margin-left: 20px;
+}
+
+.checkbox--area table {
+  width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .form--Lead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
