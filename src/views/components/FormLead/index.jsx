@@ -33,6 +33,7 @@ function FormLead() {
   const lead = JSON.parse(apiConnector.getItem("lead")) || [];
   lead.push(model);
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name !== "" && telefone !== "" && email !== "") {

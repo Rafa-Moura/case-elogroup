@@ -9,7 +9,6 @@ function CardLead(props) {
     setTimeout(() => {
       target.style.display = "none";
     }, 0);
-    console.log(target);
   };
 
   const dragOver = (e) => {

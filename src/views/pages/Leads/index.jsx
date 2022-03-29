@@ -1,14 +1,20 @@
+import "./styles.css";
 import React from "react";
 import BoardLeads from "../../components/BoardLeads";
 
-import "./styles.css";
-
 function Leads() {
-  return (
-    <section id="leads--section" className="container">
-      <BoardLeads />
-    </section>
-  );
+  if (typeof window !== "undefined") {
+    const datafromStorage = JSON.parse(window.localStorage.getItem("lead"));
+    if (datafromStorage !== null) {
+      return (
+        <section id="leads--section" className="container">
+          <BoardLeads />
+        </section>
+      );
+    } else {
+      return [];
+    }
+  }
 }
 
 export default Leads;

@@ -10,9 +10,9 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
+        <Route path="/" element={<CadastrarLead />} />
         <Route path="/usuario" element={<Usuario />} />
         <Route path="/leads" element={<Leads />} />
-        <Route path="/cadastrarlead" element={<CadastrarLead />} />
       </Routes>
     </BrowserRouter>
   );

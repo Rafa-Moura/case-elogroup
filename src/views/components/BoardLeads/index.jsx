@@ -23,7 +23,7 @@ function BoardLeads() {
         </div>
       </header>
       <div className="board--action">
-        <Link to="/cadastrarlead">
+        <Link to="/">
           <button className="btn">
             Novo Lead
             <span>
