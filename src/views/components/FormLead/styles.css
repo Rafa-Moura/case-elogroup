@@ -1,12 +1,20 @@
 .formLead--container {
   max-width: 800px;
   width: 100%;
+  background-color: #f8f8f8;
+  padding: 40px 30px;
 }
 .header--formLead {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
+}
+
+.logo--formLead {
+  background-color: rgb(54, 71, 148);
+  padding: 10px;
+  color: #fff;
 }
 
 .formLead--inputs {

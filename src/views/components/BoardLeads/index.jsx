@@ -1,12 +1,17 @@
 import React from "react";
 import ListLead from "../ListLead";
 
+import CardLead from "../CardLead";
+
 import { MdAdd } from "react-icons/md";
 
 import "./styles.css";
 import { Link } from "react-router-dom";
 
+import { listLead } from "../../../controllers/leadController";
+
 function BoardLeads() {
+  const result = listLead();
   return (
     <div id="board--container">
       <header className="header--board">
@@ -27,8 +32,29 @@ function BoardLeads() {
           </button>
         </Link>
       </div>
-      <div className="body--board">
-        <ListLead />
+      <div className="body--board" id="flexbox">
+        <ListLead id="board-1" className="board" title="Cliente em potencial">
+          {result.map((item) => (
+            <CardLead
+              key={item.id}
+              id={item.id}
+              className="card"
+              draggable="true"
+            >
+              <p>{item.name}</p>
+            </CardLead>
+          ))}
+        </ListLead>
+        <ListLead
+          id="board-2"
+          className="board"
+          title="Dados Confirmados"
+        ></ListLead>
+        <ListLead
+          id="board-3"
+          className="board"
+          title="Reunião Agendada"
+        ></ListLead>
       </div>
     </div>
   );

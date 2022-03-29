@@ -1,32 +1,31 @@
 import React from "react";
-import CardLead from "../CardLead";
 
 import "./styles.css";
 
-function ListLead() {
+function ListLead(props) {
+  const drop = (e) => {
+    e.preventDefault();
+    const card_id = e.dataTransfer.getData("card_id");
+    const card = document.getElementById(card_id);
+    card.style.display = "block";
+
+    e.target.appendChild(card);
+  };
+
+  const dragOver = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <>
-      <div className="list--container">
-        <div className="list--title">
-          <h5 className="w-100 text-center">Cliente em Potencial</h5>
-        </div>
-        <div className="list--body">
-          <CardLead />
-        </div>
-      </div>
-      <div className="list--container">
-        <div className="list--title">
-          <h5 className="w-100 text-center">Dados Confirmados</h5>
-        </div>
-        <div className="list--body"></div>
-      </div>
-      <div className="list--container">
-        <div className="list--title">
-          <h5 className="w-100 text-center">Reunião Agendada</h5>
-        </div>
-        <div className="list--body"></div>
-      </div>
-    </>
+    <div
+      id={props.id}
+      className={props.className}
+      onDrop={drop}
+      onDragOver={dragOver}
+    >
+      <h4 className="mb-5">{props.title}</h4>
+      <div>{props.children}</div>
+    </div>
   );
 }
 

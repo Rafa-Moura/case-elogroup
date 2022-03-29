@@ -43,3 +43,33 @@
   align-items: center;
   justify-content: space-between;
 }
+
+#flexbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  overflow: hidden;
+  min-height: 500px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+#flexbox .board {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 500px;
+  max-width: 300px;
+  background-color: rgba(4, 61, 167, 0.067);
+  padding: 15px;
+  margin-left: 20px;
+}
+
+#flexbox .board .card {
+  padding: 15px 25px;
+  background-color: #f3f3f3;
+  cursor: pointer;
+  margin-bottom: 15px;
+}

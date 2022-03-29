@@ -1,19 +1,31 @@
 import React from "react";
-import { listLead } from "../../../controllers/leadController";
 
 import "./styles.css";
 
-function CardLead() {
-  const result = listLead();
+function CardLead(props) {
+  const dragStart = (e) => {
+    const target = e.target;
+    e.dataTransfer.setData("card_id", target.id);
+    setTimeout(() => {
+      target.style.display = "none";
+    }, 0);
+    console.log(target);
+  };
+
+  const dragOver = (e) => {
+    e.stopPropagation();
+  };
 
   return (
-    <>
-      {result.map((card) => (
-        <div className="cardLead--container" draggable="true">
-          <h5 key={card.id}>{card.name}</h5>
-        </div>
-      ))}
-    </>
+    <div
+      id={props.id}
+      className={props.className}
+      draggable={props.draggable}
+      onDragStart={dragStart}
+      onDragOver={dragOver}
+    >
+      {props.children}
+    </div>
   );
 }
 

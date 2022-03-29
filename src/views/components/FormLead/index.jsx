@@ -9,6 +9,10 @@ function FormLead() {
   const [name, setName] = useState("");
   const [telefone, setTelefone] = useState("");
   const [email, setEmail] = useState("");
+  const [rpa, setRpa] = useState(false);
+  const [produtoDigital, setProdutoDigital] = useState(false);
+  const [analytics, setAnalytics] = useState(false);
+  const [bpm, setBpm] = useState(false);
 
   const navigate = useNavigate();
 
@@ -17,6 +21,13 @@ function FormLead() {
     name: name,
     telefone: telefone,
     email: email,
+    status: "cliente em potencial",
+    services: {
+      rpa: "",
+      produtoDigital: "",
+      analytics: "",
+      bpm: "",
+    },
   };
 
   const lead = JSON.parse(apiConnector.getItem("lead")) || [];
@@ -24,8 +35,21 @@ function FormLead() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    saveLead(lead);
-    navigate("/leads");
+    if (name !== "" && telefone !== "" && email !== "") {
+      rpa ? (model.services.rpa = true) : (model.services.rpa = false);
+      produtoDigital
+        ? (model.services.produtoDigital = true)
+        : (model.services.produtoDigital = false);
+      analytics
+        ? (model.services.analytics = true)
+        : (model.services.analytics = false);
+      bpm ? (model.services.bpm = true) : (model.services.bpm = false);
+      saveLead(lead);
+      alert("Lead incluido com sucesso!");
+      navigate("/leads");
+    } else {
+      alert("Favor preencher todos os campos");
+    }
   };
 
   return (
@@ -100,21 +124,21 @@ function FormLead() {
                     <td>
                       <div className="form-check">
                         <input
-                          className="form-check-input"
                           type="checkbox"
-                          id="rap"
+                          value={rpa}
+                          onChange={(e) => setRpa(e.target.checked)}
                         />
                       </div>
                     </td>
-                    <td>RAP</td>
+                    <td>RPA</td>
                   </tr>
                   <tr>
                     <td>
                       <div className="form-check">
                         <input
-                          className="form-check-input"
                           type="checkbox"
-                          id="produtoDigital"
+                          value={produtoDigital}
+                          onChange={(e) => setProdutoDigital(e.target.checked)}
                         />
                       </div>
                     </td>
@@ -124,9 +148,9 @@ function FormLead() {
                     <td>
                       <div className="form-check">
                         <input
-                          className="form-check-input"
                           type="checkbox"
-                          id="analytics"
+                          value={analytics}
+                          onChange={(e) => setAnalytics(e.target.checked)}
                         />
                       </div>
                     </td>
@@ -136,9 +160,9 @@ function FormLead() {
                     <td>
                       <div className="form-check">
                         <input
-                          className="form-check-input"
                           type="checkbox"
-                          id="bpm"
+                          value={bpm}
+                          onChange={(e) => setBpm(e.target.checked)}
                         />
                       </div>
                     </td>
